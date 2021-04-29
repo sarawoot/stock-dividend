@@ -103,11 +103,14 @@ func main() {
 		log.Fatalln(err.Error())
 	}
 
-	if err := c.Visit("https://marketdata.set.or.th/mkt/sectorquotation.do?sector=SET100&language=en&country=US"); err != nil {
+	// if err := c.Visit("https://marketdata.set.or.th/mkt/sectorquotation.do?sector=SET100&language=en&country=US"); err != nil {
+	if err := c.Visit("https://marketdata.set.or.th/mkt/sectorquotation.do?sector=SETHD&language=en&country=US"); err != nil {
 		fmt.Println("set100 error: ", err.Error())
 	}
 
 	for _, v := range stocks {
-		fmt.Println(*v)
+		if v.Set {
+			fmt.Println(*v)
+		}
 	}
 }
